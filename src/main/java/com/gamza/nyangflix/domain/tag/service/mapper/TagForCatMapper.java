@@ -21,5 +21,6 @@ public interface TagForCatMapper {
     public List<TagForCatDto> toDtoList(List<TagForCat> tagForCatList);
 
     @Mapping(target = "tagName")
-    public TagForCat toTagForCat(String tagName);
+    public TagForCat toTagForCat(TagForCatDto tagForCatDto);
+
 }

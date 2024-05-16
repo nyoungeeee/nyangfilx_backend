@@ -1,9 +1,12 @@
 package com.gamza.nyangflix.domain.tag.entity;
 
+import com.gamza.nyangflix.domain.tag.service.model.TagForCatDto;
 import com.gamza.nyangflix.global.entity.TimeAttr;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Where;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -21,5 +24,14 @@ public class TagForCat extends TimeAttr {
 
     @Column(name = "태그명")
     private String tagName;
+
+    public void update(TagForCatDto tagForCatDto) {
+        this.id = tagForCatDto.getTagId();
+        this.tagName = tagForCatDto.getTagName();
+    }
+
+    public void delete() {
+        this.setDeleteDate(LocalDateTime.now());
+    }
 
 }
